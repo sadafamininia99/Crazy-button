@@ -1,28 +1,21 @@
-//grab every things
+// grab everything we need
+const crazyButtons = document.querySelectorAll(".btn-crazy");
 
-const crzaybutton =document.querySelector('.btn-crazy');
+// define our functions
+function goCrazy() {
+  // get a random number for the left offset
+  // random num for top offset
+  const offsetLeft = Math.random() * (window.innerWidth - this.clientWidth);
+  const offsetTop = Math.random() * (window.innerHeight - this.clientHeight);
 
-//define our function
-function goCrazy()
-{
-    //get a random num 4 left offset
-    //get a number for top offset
+  console.log(offsetLeft, offsetTop);
 
-    const offsetLeft =Math.random();
-    const offsetTop =Math.random();
-
-    //test 
-    console.log(offsetLeft ,offsetTop);
-
-    //apply those numbers to the button
-
-    crzaybutton.style.top =offsetTop;
-    crzaybutton.style.left=offsetLeft;
-
+  // apply those numbers to the button
+  this.style.top = offsetTop + "px";
+  this.style.left = offsetLeft + "px";
 }
 
-
-//add event listiner
-window.onunload.function();{;
-   crzaybutton.addEventListener('mouseenter',goCrazy) 
-};
+// add event listeners
+crazyButtons.forEach((button) =>
+  button.addEventListener("mouseenter", goCrazy)
+);
